@@ -39,6 +39,9 @@ Note:
 - List overdue or due-soon quarterly reviews:
 `./scripts/list-review-due.sh`
 
+- Validate inventory consistency:
+`./scripts/validate-inventory.sh`
+
 ## Operating Flow
 1. Request
 - Open a request using `docs/shared-drive-request-template.md`.

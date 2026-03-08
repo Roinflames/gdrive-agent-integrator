@@ -40,3 +40,9 @@ jobs:
         run: |
           set -euo pipefail
           ./scripts/validate-docs.sh
+
+      - name: Inventory consistency check
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./scripts/validate-inventory.sh
