@@ -11,6 +11,8 @@ This repository stores the operational rules and templates for Google Shared Dri
 - `docs/shared-drive-request-template.md`: standard request format for new drives.
 - `docs/operational-checklist.md`: execution checklist from request to quarterly review.
 - `docs/requests/`: generated request records.
+- `docs/review-template.md`: standard quarterly review record.
+- `docs/reviews/`: generated quarterly review records.
 
 ## Automation
 - Create a new request file:
@@ -18,6 +20,12 @@ This repository stores the operational rules and templates for Google Shared Dri
 
 Example:
 `./scripts/new-drive-request.sh "rreyes" "ops" "fin-presupuesto-2026"`
+
+- Create a quarterly review record:
+`./scripts/new-quarterly-review.sh "<reviewer>" "[YYYY-QN]"`
+
+Example:
+`./scripts/new-quarterly-review.sh "rreyes" "2026-Q1"`
 
 ## Operating Flow
 1. Request

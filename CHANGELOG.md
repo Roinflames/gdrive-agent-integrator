@@ -10,6 +10,9 @@ All notable changes to this repository will be documented in this file.
 - `.github/CODEOWNERS` to require owner review for governance/process files.
 - `.github/workflows/docs-governance-check.yml` to require `CHANGELOG.md` updates when governance files change.
 - `docs/requests/README.md` with naming and lifecycle rules for request records.
+- `docs/review-template.md` for quarterly governance review records.
+- `scripts/new-quarterly-review.sh` to generate quarterly review files in `docs/reviews/`.
+- `docs/reviews/README.md` with naming convention and usage for review records.
 
 ## [0.1.0] - 2026-03-08
 ### Added
