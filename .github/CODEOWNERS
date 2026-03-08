@@ -1,0 +1,11 @@
+# Default owners
+* @Roinflames
+
+# Governance and process docs
+/AGENTS.md @Roinflames
+/CHANGELOG.md @Roinflames
+/README.md @Roinflames
+/docs/*.md @Roinflames
+/docs/requests/** @Roinflames
+/scripts/** @Roinflames
+/.github/workflows/** @Roinflames

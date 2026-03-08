@@ -1,0 +1,49 @@
+name: Docs Governance Check
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  changelog-required:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce changelog for governance changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          base_ref="origin/${{ github.base_ref }}"
+          git fetch origin "${{ github.base_ref }}" --depth=1
+
+          changed_files="$(git diff --name-only "$base_ref"...HEAD)"
+
+          echo "Changed files:"
+          echo "$changed_files"
+
+          governance_changed=0
+          changelog_changed=0
+
+          while IFS= read -r file; do
+            [[ -z "$file" ]] && continue
+
+            if [[ "$file" == "CHANGELOG.md" ]]; then
+              changelog_changed=1
+            fi
+
+            if [[ "$file" == "AGENTS.md" || "$file" == "README.md" || "$file" == docs/* || "$file" == scripts/* || "$file" == .github/workflows/* ]]; then
+              governance_changed=1
+            fi
+          done <<< "$changed_files"
+
+          if [[ "$governance_changed" -eq 1 && "$changelog_changed" -ne 1 ]]; then
+            echo "ERROR: Governance/process files changed but CHANGELOG.md was not updated."
+            exit 1
+          fi
+
+          echo "Governance changelog check passed."
