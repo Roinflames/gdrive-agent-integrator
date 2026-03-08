@@ -1,0 +1,36 @@
+name: Scripts Check
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  validate-shell-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Bash syntax check
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ls scripts/*.sh >/dev/null 2>&1; then
+            bash -n scripts/*.sh
+          else
+            echo "No shell scripts found."
+          fi
+
+      - name: ShellCheck
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          if ls scripts/*.sh >/dev/null 2>&1; then
+            shellcheck scripts/*.sh
+          else
+            echo "No shell scripts found."
+          fi

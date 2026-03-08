@@ -13,6 +13,8 @@ All notable changes to this repository will be documented in this file.
 - `docs/review-template.md` for quarterly governance review records.
 - `scripts/new-quarterly-review.sh` to generate quarterly review files in `docs/reviews/`.
 - `docs/reviews/README.md` with naming convention and usage for review records.
+- `SECURITY.md` with minimum security controls and incident handling.
+- `.github/workflows/scripts-check.yml` to validate bash syntax and run ShellCheck on repo scripts.
 
 ## [0.1.0] - 2026-03-08
 ### Added
