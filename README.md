@@ -8,6 +8,7 @@ This repository stores the operational rules and templates for Google Shared Dri
 
 ## Documents
 - `docs/shared-drive-governance.md`: consolidated governance standard and audit baseline.
+- `docs/shared-drive-inventory.md`: active shared drives registry with review due dates.
 - `docs/shared-drive-policy.md`: governance baseline and mandatory controls.
 - `docs/shared-drive-request-template.md`: standard request format for new drives.
 - `docs/operational-checklist.md`: execution checklist from request to quarterly review.
@@ -34,6 +35,9 @@ Example:
 
 Note:
 - The script exits with error if `docs/reviews/YYYY-QN.md` already exists.
+
+- List overdue or due-soon quarterly reviews:
+`./scripts/list-review-due.sh`
 
 ## Operating Flow
 1. Request

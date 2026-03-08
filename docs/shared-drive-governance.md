@@ -40,7 +40,7 @@ Every new Shared Drive must include:
   - temporary access expiration cleanup,
   - external sharing validation,
   - confirmation of at least two active managers.
-- Evidence location: `docs/reviews/` and related request files in `docs/requests/`.
+- Evidence location: `docs/reviews/`, related request files in `docs/requests/`, and due-date tracking in `docs/shared-drive-inventory.md`.
 
 ## Change Log
 - 2026-03-08: Initial governance standard consolidated from policy and templates.

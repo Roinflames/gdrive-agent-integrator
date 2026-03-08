@@ -18,6 +18,8 @@ All notable changes to this repository will be documented in this file.
 - `.github/workflows/scripts-check.yml` to validate bash syntax and run ShellCheck on repo scripts.
 - `docs/requests/2026-03-08-gdrive-shared-governance.md` as initial completed request record.
 - `docs/reviews/2026-Q1.md` as initial quarterly review record.
+- `docs/shared-drive-inventory.md` to track active Shared Drives and quarterly review due dates.
+- `scripts/list-review-due.sh` to report overdue or due-soon quarterly reviews from the inventory.
 
 ### Changed
 - `docs/shared-drive-governance.md` quarterly review filename convention aligned to `YYYY-QN.md`.
@@ -29,6 +31,7 @@ All notable changes to this repository will be documented in this file.
 - `scripts/new-drive-request.sh` now requires explicit `requested_by`, `team`, and `slug` arguments and refuses to overwrite existing request files.
 - `scripts/new-quarterly-review.sh` now refuses to overwrite an existing quarterly review file.
 - `README.md` automation section updated to document required arguments and overwrite-protection behavior.
+- `README.md` and `docs/shared-drive-governance.md` updated to include inventory-based review tracking.
 
 ## [0.1.0] - 2026-03-08
 ### Added
