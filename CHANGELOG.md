@@ -4,6 +4,7 @@ All notable changes to this repository will be documented in this file.
 
 ## [Unreleased]
 ### Added
+- `docs/shared-drive-governance.md` as consolidated governance reference with required operational sections.
 - `docs/operational-checklist.md` with request, approval, creation, and review controls.
 - `scripts/new-drive-request.sh` to generate timestamped request files under `docs/requests/`.
 - README automation section with command usage.
@@ -15,6 +16,11 @@ All notable changes to this repository will be documented in this file.
 - `docs/reviews/README.md` with naming convention and usage for review records.
 - `SECURITY.md` with minimum security controls and incident handling.
 - `.github/workflows/scripts-check.yml` to validate bash syntax and run ShellCheck on repo scripts.
+- `docs/requests/2026-03-08-gdrive-shared-governance.md` as initial completed request record.
+- `docs/reviews/2026-Q1.md` as initial quarterly review record.
+
+### Changed
+- `docs/shared-drive-governance.md` quarterly review filename convention aligned to `YYYY-QN.md`.
 
 ## [0.1.0] - 2026-03-08
 ### Added

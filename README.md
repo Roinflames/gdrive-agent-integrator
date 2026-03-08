@@ -7,6 +7,7 @@ This repository stores the operational rules and templates for Google Shared Dri
 - Keep operational decisions versioned in Git.
 
 ## Documents
+- `docs/shared-drive-governance.md`: consolidated governance standard and audit baseline.
 - `docs/shared-drive-policy.md`: governance baseline and mandatory controls.
 - `docs/shared-drive-request-template.md`: standard request format for new drives.
 - `docs/operational-checklist.md`: execution checklist from request to quarterly review.
