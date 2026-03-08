@@ -11,56 +11,53 @@ fi
 
 echo "Validating shared drive inventory..."
 
-errors=0
-line_no=0
+awk -F'|' '
+  function trim(s) {
+    gsub(/^[ \t]+|[ \t]+$/, "", s)
+    return s
+  }
 
-while IFS= read -r line; do
-  line_no=$((line_no + 1))
+  /^\|/ {
+    if ($0 ~ /^\|---/) next
+    if (tolower($2) ~ /drive name/) next
 
-  [[ "$line" == \|* ]] || continue
-  [[ "$line" == *"---"* ]] && continue
-  [[ "$line" == *"Drive Name"* ]] && continue
+    drive = trim($2)
+    url = trim($3)
+    last_review = trim($8)
+    next_review = trim($9)
+    status = trim($10)
 
-  # Extract/trim fields from markdown table row.
-  IFS='|' read -r _ drive url owner primary backup sensitivity last_review next_review status _ <<< "$line"
+    if (drive == "") next
 
-  for var in drive url owner primary backup sensitivity last_review next_review status; do
-    # shellcheck disable=SC2163
-    eval "$var=\"\${$var#${!var%%[![:space:]]*}}\""
-    # shellcheck disable=SC2163
-    eval "$var=\"\${$var%${!var##*[![:space:]]}}\""
-  done
+    if (url !~ /^https:\/\/drive\.google\.com\//) {
+      printf "ERROR line %d: invalid Drive URL for '\''%s'\''\n", NR, drive > "/dev/stderr"
+      err = 1
+    }
 
-  [[ -z "$drive" ]] && continue
+    if (last_review !~ /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/) {
+      printf "ERROR line %d: invalid Last Review date for '\''%s'\'' (%s)\n", NR, drive, last_review > "/dev/stderr"
+      err = 1
+    }
 
-  if [[ -z "$url" || "$url" != https://drive.google.com/* ]]; then
-    echo "ERROR line $line_no: invalid Drive URL for '$drive'" >&2
-    errors=1
-  fi
+    if (next_review !~ /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/) {
+      printf "ERROR line %d: invalid Next Review Due date for '\''%s'\'' (%s)\n", NR, drive, next_review > "/dev/stderr"
+      err = 1
+    }
 
-  if ! [[ "$last_review" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
-    echo "ERROR line $line_no: invalid Last Review date for '$drive' ($last_review)" >&2
-    errors=1
-  fi
+    if (status != "Active" && status != "Archived") {
+      printf "ERROR line %d: invalid Status for '\''%s'\'' (%s)\n", NR, drive, status > "/dev/stderr"
+      err = 1
+    }
 
-  if ! [[ "$next_review" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
-    echo "ERROR line $line_no: invalid Next Review Due date for '$drive' ($next_review)" >&2
-    errors=1
-  fi
+    if (last_review > next_review) {
+      printf "ERROR line %d: Last Review is after Next Review Due for '\''%s'\''\n", NR, drive > "/dev/stderr"
+      err = 1
+    }
+  }
 
-  if [[ "$status" != "Active" && "$status" != "Archived" ]]; then
-    echo "ERROR line $line_no: invalid Status for '$drive' ($status)" >&2
-    errors=1
-  fi
-
-  if [[ "$last_review" > "$next_review" ]]; then
-    echo "ERROR line $line_no: Last Review is after Next Review Due for '$drive'" >&2
-    errors=1
-  fi
-done < "$INVENTORY_FILE"
-
-if [[ "$errors" -ne 0 ]]; then
-  exit 1
-fi
+  END {
+    exit err
+  }
+' "$INVENTORY_FILE"
 
 echo "Inventory validation passed."
