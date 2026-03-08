@@ -38,6 +38,7 @@ All notable changes to this repository will be documented in this file.
 - `README.md` automation section documents inventory validation command.
 - `scripts/list-review-due.sh` fixed markdown parsing, added clearer empty-state output, and new `--fail-on-overdue` mode for CI.
 - `README.md` updated with scheduled monitoring behavior and the strict overdue-check command.
+- `scripts/validate-docs.sh` and `scripts/list-review-due.sh` now use POSIX `grep` in runtime checks to avoid missing `rg` dependency in CI runners.
 
 ## [0.1.0] - 2026-03-08
 ### Added

@@ -66,7 +66,7 @@ else
   echo "No overdue or due-soon reviews."
 fi
 
-overdue_count="$(rg -c '^OVERDUE' "$report_file" || true)"
+overdue_count="$(grep -c '^OVERDUE' "$report_file" || true)"
 
 if [[ "$FAIL_ON_OVERDUE" -eq 1 && "$overdue_count" -gt 0 ]]; then
   echo

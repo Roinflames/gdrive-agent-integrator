@@ -14,7 +14,7 @@ for f in docs/requests/*.md docs/reviews/*.md; do
   base="$(basename "$f")"
   [[ "$base" == "README.md" ]] && continue
 
-  if rg -n -i '\bpending\b|\bTBD\b|Open / Closed' "$f"; then
+  if grep -Eni '\bpending\b|\bTBD\b|Open / Closed' "$f"; then
     echo "ERROR: unresolved placeholder found in $f"
     failed=1
   fi
