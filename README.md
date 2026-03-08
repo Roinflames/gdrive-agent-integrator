@@ -22,11 +22,18 @@ This repository stores the operational rules and templates for Google Shared Dri
 Example:
 `./scripts/new-drive-request.sh "rreyes" "ops" "fin-presupuesto-2026"`
 
+Note:
+- All three arguments are required.
+- The script exits with error if the target file already exists.
+
 - Create a quarterly review record:
 `./scripts/new-quarterly-review.sh "<reviewer>" "[YYYY-QN]"`
 
 Example:
 `./scripts/new-quarterly-review.sh "rreyes" "2026-Q1"`
+
+Note:
+- The script exits with error if `docs/reviews/YYYY-QN.md` already exists.
 
 ## Operating Flow
 1. Request

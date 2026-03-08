@@ -24,6 +24,12 @@ review_id="QSR-$ts"
 out_file="$OUT_DIR/${quarter}.md"
 
 mkdir -p "$OUT_DIR"
+
+if [[ -e "$out_file" ]]; then
+  echo "Quarterly review file already exists: $out_file" >&2
+  exit 1
+fi
+
 cp "$TEMPLATE" "$out_file"
 
 sed -i "s#^- Review ID:#- Review ID: ${review_id}#" "$out_file"

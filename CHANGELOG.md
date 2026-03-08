@@ -26,6 +26,9 @@ All notable changes to this repository will be documented in this file.
 - Added `scripts/validate-docs.sh` to fail CI when generated request/review records contain unresolved placeholders.
 - `docs/requests/2026-03-08-gdrive-shared-governance.md` updated with the provisioned Shared Drive URL.
 - `docs/reviews/2026-Q1.md` action to confirm Shared Drive URL marked as `Closed`.
+- `scripts/new-drive-request.sh` now requires explicit `requested_by`, `team`, and `slug` arguments and refuses to overwrite existing request files.
+- `scripts/new-quarterly-review.sh` now refuses to overwrite an existing quarterly review file.
+- `README.md` automation section updated to document required arguments and overwrite-protection behavior.
 
 ## [0.1.0] - 2026-03-08
 ### Added
