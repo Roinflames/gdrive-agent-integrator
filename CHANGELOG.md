@@ -24,6 +24,8 @@ All notable changes to this repository will be documented in this file.
 - `docs/requests/2026-03-08-gdrive-shared-governance.md` creation record updated to explicit provisioning status (no placeholder value).
 - `.github/workflows/scripts-check.yml` now validates docs placeholders through `scripts/validate-docs.sh`.
 - Added `scripts/validate-docs.sh` to fail CI when generated request/review records contain unresolved placeholders.
+- `docs/requests/2026-03-08-gdrive-shared-governance.md` updated with the provisioned Shared Drive URL.
+- `docs/reviews/2026-Q1.md` action to confirm Shared Drive URL marked as `Closed`.
 
 ## [0.1.0] - 2026-03-08
 ### Added
