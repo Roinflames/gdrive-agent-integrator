@@ -21,6 +21,7 @@ All notable changes to this repository will be documented in this file.
 - `docs/shared-drive-inventory.md` to track active Shared Drives and quarterly review due dates.
 - `scripts/list-review-due.sh` to report overdue or due-soon quarterly reviews from the inventory.
 - `scripts/validate-inventory.sh` to validate inventory row quality (URL, dates, status, and review order).
+- `.github/workflows/review-due-check.yml` scheduled weekly monitor for overdue quarterly reviews.
 
 ### Changed
 - `docs/shared-drive-governance.md` quarterly review filename convention aligned to `YYYY-QN.md`.
@@ -35,6 +36,8 @@ All notable changes to this repository will be documented in this file.
 - `README.md` and `docs/shared-drive-governance.md` updated to include inventory-based review tracking.
 - `.github/workflows/scripts-check.yml` now runs inventory consistency validation.
 - `README.md` automation section documents inventory validation command.
+- `scripts/list-review-due.sh` fixed markdown parsing, added clearer empty-state output, and new `--fail-on-overdue` mode for CI.
+- `README.md` updated with scheduled monitoring behavior and the strict overdue-check command.
 
 ## [0.1.0] - 2026-03-08
 ### Added

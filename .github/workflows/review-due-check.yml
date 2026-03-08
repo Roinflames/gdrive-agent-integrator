@@ -1,0 +1,19 @@
+name: Review Due Check
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check-review-due:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Report overdue and due-soon reviews
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./scripts/list-review-due.sh --fail-on-overdue

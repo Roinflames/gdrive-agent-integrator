@@ -39,8 +39,14 @@ Note:
 - List overdue or due-soon quarterly reviews:
 `./scripts/list-review-due.sh`
 
+Optional:
+- `./scripts/list-review-due.sh --fail-on-overdue` exits non-zero when any drive is overdue.
+
 - Validate inventory consistency:
 `./scripts/validate-inventory.sh`
+
+## Scheduled Monitoring
+- GitHub Actions workflow `Review Due Check` runs weekly (Monday) and fails if any review is overdue.
 
 ## Operating Flow
 1. Request
