@@ -9,6 +9,15 @@ This repository stores the operational rules and templates for Google Shared Dri
 ## Documents
 - `docs/shared-drive-policy.md`: governance baseline and mandatory controls.
 - `docs/shared-drive-request-template.md`: standard request format for new drives.
+- `docs/operational-checklist.md`: execution checklist from request to quarterly review.
+- `docs/requests/`: generated request records.
+
+## Automation
+- Create a new request file:
+`./scripts/new-drive-request.sh "<requested_by>" "<team>" "<slug>"`
+
+Example:
+`./scripts/new-drive-request.sh "rreyes" "ops" "fin-presupuesto-2026"`
 
 ## Operating Flow
 1. Request
