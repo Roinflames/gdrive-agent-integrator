@@ -48,5 +48,5 @@
 ## Creation Record
 - Created by: rreyes
 - Creation timestamp: 2026-03-08T14:17:45-03:00
-- Shared Drive URL: pending
+- Shared Drive URL: Not created yet in Google Workspace (request approved; provisioning scheduled).
 - Initial review date (quarterly): 2026-Q2

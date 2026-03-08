@@ -21,6 +21,9 @@ All notable changes to this repository will be documented in this file.
 
 ### Changed
 - `docs/shared-drive-governance.md` quarterly review filename convention aligned to `YYYY-QN.md`.
+- `docs/requests/2026-03-08-gdrive-shared-governance.md` creation record updated to explicit provisioning status (no placeholder value).
+- `.github/workflows/scripts-check.yml` now validates docs placeholders through `scripts/validate-docs.sh`.
+- Added `scripts/validate-docs.sh` to fail CI when generated request/review records contain unresolved placeholders.
 
 ## [0.1.0] - 2026-03-08
 ### Added

@@ -34,3 +34,9 @@ jobs:
           else
             echo "No shell scripts found."
           fi
+
+      - name: Docs placeholders check
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./scripts/validate-docs.sh
